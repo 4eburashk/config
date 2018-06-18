@@ -1,0 +1,157 @@
+conky.config = {
+
+-------------------------------------
+--  Generic Settings
+-------------------------------------
+background=true,
+update_interval=1.5,
+double_buffer=true,
+no_buffers=true,
+imlib_cache_size=10,
+
+draw_shades=false,
+draw_outline=false,
+draw_borders=false,
+draw_graph_borders=false,
+default_graph_height=26,
+default_graph_width=80,
+show_graph_scale=false,
+show_graph_range=false,
+
+
+-------------------------------------
+--  Window Specifications
+-------------------------------------
+gap_x=2,
+gap_y=20,
+minimum_height=750,
+minimum_width=250,
+own_window=true,
+--own_window_type="desktop",
+own_window_type="normal",
+own_window_transparent=true,
+own_window_hints="undecorated,below,sticky,skip_taskbar,skip_pager",
+border_inner_margin=0,
+border_outer_margin=0,
+alignment="top_right",
+--own_window_argb_visual=true,
+--own_window_argb_value=0,
+
+
+-------------------------------------
+--  Text Settings
+-------------------------------------
+use_xft=true,
+xftalpha=1,
+font="Droid Sans:size=10",
+text_buffer_size=256,
+override_utf8_locale=true,
+
+short_units=true,
+short_units=true,
+pad_percents=2,
+top_name_width=7,
+
+
+-------------------------------------
+--  Color Scheme
+-------------------------------------
+default_color="FFFFFF",
+color1="FFCB48",
+color2="FFFFFF",
+color3="78AF78",
+color4="FFCB48",
+color5="98C2C7",
+color6="FFFFFF",
+color7="FFFFFF",
+color8="FFFFFF",
+
+-------------------------------------
+--  Locale (e.g. "ru_RU.UTF-8")
+--  Leave empty for default
+-------------------------------------
+template1="${color3}${hr}"
+
+}
+
+
+---------------------------------------------------
+---------------------------------------------------
+
+
+conky.text = [[
+\
+${color1}h:${nodename} d:${desktop} wp:  ${alignr} KERNEL: ${kernel}
+${template1}
+${color1}/home ${color5}USED:${color} ${fs_used /home} ${alignr} ${color5}FREE:${color} ${fs_free /home} 
+${color3}${fs_size /home} ${fs_bar 8,240 /home}
+${color1}HDD:${color}${alignr}${diskiograph 20,240 000000 FFCB48 -l}
+${color1}CPU0:${color} ${color4}${cpubar cpu0 8,60}  ${cpu cpu0}% ${alignr} ${cpu cpu1}% ${cpubar cpu1 8,60}${color1} :CPU1 ${color} 
+${color3}process:               ${alignr}PID:     ${alignr}CPU%  ${color}
+1. ${top name 1}     ${alignr}${top pid 1}   ${alignr}${top cpu 1}%
+2. ${top name 2}     ${alignr}${top pid 2}   ${alignr}${top cpu 2}%
+3. ${top name 3}     ${alignr}${top pid 3}   ${alignr}${top cpu 3}%
+4. ${top name 4}     ${alignr}${top pid 4}   ${alignr}${top cpu 4}%
+5. ${top name 5}     ${alignr}${top pid 5}   ${alignr}${top cpu 5}%
+6. ${top name 6}     ${alignr}${top pid 6}   ${alignr}${top cpu 6}%
+7. ${top name 7}     ${alignr}${top pid 7}   ${alignr}${top cpu 7}%
+0. ${top name 10}     ${alignr}${top pid 10}   ${alignr}${top cpu 10}%
+${color1}CPU: ${cpugraph 20,240 00FF00 FFCB48 -l}
+\
+\
+${color1}RAM: ${color2}${memmax}/${mem}${alignr}${color4}${memperc}% ${membar 8,60}${color}
+\
+\
+${color3}process:               ${alignr}PID:   ${alignr}MEM(MB):${color}
+${top_mem name 1}     ${alignr}${top_mem pid 1}   ${alignr}${top_mem mem 1}
+${top_mem name 2}     ${alignr}${top_mem pid 2}   ${alignr}${top_mem mem 2}
+${top_mem name 3}     ${alignr}${top_mem pid 3}   ${alignr}${top_mem mem 3}
+${top_mem name 4}     ${alignr}${top_mem pid 4}   ${alignr}${top_mem mem 4}
+${top_mem name 5}     ${alignr}${top_mem pid 5}   ${alignr}${top_mem mem 5}
+${top_mem name 6}     ${alignr}${top_mem pid 6}   ${alignr}${top_mem mem 6}
+\
+\
+\
+\
+${color1}Inbound Connection ${alignr} Local Service/Port${color}
+${tcp_portmon 1 32767 rip 0} ${alignr} ${tcp_portmon 1 32767 lport 0}
+${tcp_portmon 1 32767 rip 1} ${alignr} ${tcp_portmon 1 32767 lport 1}
+${tcp_portmon 1 32767 rip 2} ${alignr} ${tcp_portmon 1 32767 lport 2}
+${tcp_portmon 1 32767 rip 3} ${alignr} ${tcp_portmon 1 32767 lport 3}
+\
+\
+${color1}Outbound Connection ${alignr} Remote Service/Port${color}
+${tcp_portmon 32768 61000 rip 0} ${alignr} ${tcp_portmon 32768 61000 rport 0}
+${tcp_portmon 32768 61000 rip 1} ${alignr} ${tcp_portmon 32768 61000 rport 1}
+${tcp_portmon 32768 61000 rip 2} ${alignr} ${tcp_portmon 32768 61000 rport 2}
+${tcp_portmon 32768 61000 rip 3} ${alignr} ${tcp_portmon 32768 61000 rport 3}
+${tcp_portmon 32768 61000 rip 4} ${alignr} ${tcp_portmon 32768 61000 rport 4}
+${tcp_portmon 32768 61000 rip 5} ${alignr} ${tcp_portmon 32768 61000 rport 5}
+${tcp_portmon 32768 61000 rip 6} ${alignr} ${tcp_portmon 32768 61000 rport 6}
+${tcp_portmon 32768 61000 rip 7} ${alignr} ${tcp_portmon 32768 61000 rport 7}
+${tcp_portmon 32768 61000 rip 8} ${alignr} ${tcp_portmon 32768 61000 rport 8}
+${tcp_portmon 32768 61000 rip 9} ${alignr} ${tcp_portmon 32768 61000 rport 9}
+${tcp_portmon 32768 61000 rip 10} ${alignr} ${tcp_portmon 32768 61000 rport 10}
+${tcp_portmon 32768 61000 rip 11} ${alignr} ${tcp_portmon 32768 61000 rport 11}
+${template1}
+\
+\
+\
+\
+${font Droid Sans:bold:size=14}${color1}WiFi:${font}${alignr}${downspeedgraph wlp2s0 20,70 000000 FF7700 -l}    ${upspeedgraph wlp2s0 20,70 000000 FF7700}
+${font Droid Sans:bold:size=14}${color4}${addr wlp2s0}${color}${font}${alignr}${color5}Download:${color}${totaldown wlp2s0}    ${color5}Upload:${color} ${totalup wlp2s0}
+${template1}
+\
+\
+${font Droid Sans:bold:size=14}${color1}Eth:${font}${alignr}${downspeedgraph enp1s0 20,70 000000 FF7700 -l}    ${upspeedgraph enp1s0 20,70 000000 FF7700}
+${font Droid Sans:bold:size=14}${color4}${addr enp1s0}${color}${font}${alignr}${color5}Download:${color}${totaldown enp1s0}    ${color5}Upload:${color} ${totalup enp1s0}
+${template1}
+\
+\
+${time %A} ${alignr}www.net4me.net ${time %Y}
+${template1}
+\
+\
+\
+\
+]]

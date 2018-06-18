@@ -1,0 +1,54 @@
+"=========================================
+"
+" Edit by 4eburashk http://csn.net4me.net
+"    On Пн 18 июн 2018 03:44:30
+"
+"=========================================
+
+" Default = -1 = None, can be used for transparency or default color
+" Black = 0
+" Red = 1
+" Green = 2
+" Yellow = 3
+" Blue = 4
+" Magenta = 5
+" Cyan = 6
+" White = 7
+
+" STYLES
+" bold
+" underline
+" reverse or inverse
+" standout
+" none
+
+highlight clear
+highlight Win cterm=none ctermfg=green ctermbg=none
+highlight Directory cterm=bold ctermfg=blue ctermbg=none
+
+highlight Link cterm=bold ctermfg=yellow ctermbg=none
+highlight BrokenLink cterm=bold ctermfg=red ctermbg=none
+highlight Socket cterm=bold ctermfg=magenta ctermbg=black
+highlight Device cterm=bold ctermfg=red ctermbg=black
+highlight Fifo cterm=bold ctermfg=cyan ctermbg=none
+
+highlight Executable cterm=bold ctermfg=green ctermbg=none
+highlight Selected cterm=none ctermfg=red ctermbg=yellow
+highlight CurrLine cterm=bold ctermfg=magenta ctermbg=blue
+
+highlight TopLine cterm=none ctermfg=white ctermbg=none
+
+highlight TopLineSel cterm=none ctermfg=magenta ctermbg=blue
+highlight StatusLine cterm=bold ctermfg=red ctermbg=blue
+
+highlight WildMenu cterm=underline,reverse ctermfg=white ctermbg=black
+highlight CmdLine cterm=none ctermfg=white ctermbg=none
+highlight ErrorMsg cterm=none ctermfg=red ctermbg=black
+highlight Border cterm=none ctermfg=white ctermbg=white
+
+if $USER == 'root'
+    highlight Border ctermbg=red
+endif
+
+
+"END
