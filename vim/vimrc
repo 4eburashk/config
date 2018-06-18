@@ -39,8 +39,8 @@ map Q gq
           \   exe "normal! g'\"" |
           \ endif
                         "for autocreate files content. Change path to your files or comment this:
-                        :autocmd BufNewFile  *.py       0r ~/bin/vim/mytemplates/python.txt
-                        :autocmd BufNewFile  *.html     0r ~/bin/vim/mytemplates/html.txt
+"                        :autocmd BufNewFile  *.py       0r ~/bin/vim/mytemplates/python.txt
+"                        :autocmd BufNewFile  *.html     0r ~/bin/vim/mytemplates/html.txt
                         "for auto change path to dir with edited file:
                         :autocmd BufEnter * lcd %:p:h
         endif
