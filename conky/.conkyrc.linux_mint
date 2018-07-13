@@ -23,9 +23,9 @@ show_graph_range=false,
 --  Window Specifications
 -------------------------------------
 gap_x=2,
-gap_y=20,
-minimum_height=750,
-minimum_width=250,
+gap_y=40,
+minimum_height=720,
+minimum_width=200,
 own_window=true,
 --own_window_type="desktop",
 own_window_type="normal",
