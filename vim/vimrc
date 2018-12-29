@@ -29,7 +29,7 @@ map Q gq
                 " my for not beep:
                 set vb t_vb="<Esc>|40f"
                 " my for olors:
-                ":colorscheme ben-ja
+                ":colorscheme net4me
         endif
 " Only do this part when compiled with support for autocommands.
         if has("autocmd")
@@ -136,11 +136,11 @@ endfunction
         set wildmenu
         set wcm=<Tab>
 " <F5>
-        menu REM.Java(//)   :s/^/\/\//<CR>
+        menu REM.Php(//)   :s/^/\/\//<CR>
         menu REM.Bash(#)    :s/^/#/<CR>
         menu REM.Vim(")     :s/^/"/<CR>
 " <F6>
-        menu UNREM.Java_UN :s/^\/\///<CR>
+        menu UNREM.Php_UN :s/^\/\///<CR>
         menu UNREM.Bash_UN :s/^#//<CR>
         menu UNREM.Vim_UN  :s/^"//<CR>
 "
