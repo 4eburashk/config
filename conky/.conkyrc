@@ -23,9 +23,9 @@ show_graph_range=false,
 --  Window Specifications
 -------------------------------------
 gap_x=2,
-gap_y=20,
-minimum_height=750,
-minimum_width=250,
+gap_y=40,
+minimum_height=720,
+minimum_width=200,
 own_window=true,
 --own_window_type="desktop",
 own_window_type="normal",
@@ -96,7 +96,7 @@ ${color3}process:               ${alignr}PID:     ${alignr}CPU%  ${color}
 6. ${top name 6}     ${alignr}${top pid 6}   ${alignr}${top cpu 6}%
 7. ${top name 7}     ${alignr}${top pid 7}   ${alignr}${top cpu 7}%
 0. ${top name 10}     ${alignr}${top pid 10}   ${alignr}${top cpu 10}%
-${color1}CPU: ${cpugraph 20,240 00FF00 FFCB48 -l}
+${color1}CPU: ${alignr}${cpugraph 20,240 00FF00 FFCB48 -l}
 \
 \
 ${color1}RAM: ${color2}${memmax}/${mem}${alignr}${color4}${memperc}% ${membar 8,60}${color}
@@ -148,7 +148,7 @@ ${font Droid Sans:bold:size=14}${color4}${addr enp1s0}${color}${font}${alignr}${
 ${template1}
 \
 \
-${time %A} ${alignr}csn.net4me.net ${time %Y}
+${time %A} ${alignr}www.net4me.net ${time %Y}
 ${template1}
 \
 \
