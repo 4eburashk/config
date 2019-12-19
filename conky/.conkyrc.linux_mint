@@ -148,7 +148,7 @@ ${font Droid Sans:bold:size=14}${color4}${addr enp1s0}${color}${font}${alignr}${
 ${template1}
 \
 \
-${time %A} ${alignr}www.net4me.net ${time %Y}
+${time %A} ${alignr}csn.net4me.net ${time %Y}
 ${template1}
 \
 \
