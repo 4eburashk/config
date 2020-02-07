@@ -23,7 +23,7 @@ show_graph_range=false,
 --  Window Specifications
 -------------------------------------
 gap_x=2,
-gap_y=40,
+gap_y=15,
 minimum_height=720,
 minimum_width=200,
 own_window=true,
@@ -77,6 +77,7 @@ template1="${color3}${hr}"
 
 ---------------------------------------------------
 ---------------------------------------------------
+
 
 conky.text = [[
 \
@@ -133,12 +134,12 @@ ${template1}
 \
 \
 \
-${font Droid Sans:bold:size=14}${color1}WiFi:${font}${alignr}${downspeedgraph wlp2s0 20,70 000000 FF7700 -l}    ${upspeedgraph wlp2s0 20,70 000000 FF7700}
+${font Droid Sans:bold:size=7}${color1}WiFi:${font}${alignr}${downspeedgraph wlp2s0 20,70 000000 FF7700 -l}    ${upspeedgraph wlp2s0 20,70 000000 FF7700}
 ${font Droid Sans:bold:size=14}${color4}${addr wlp2s0}${color}${font}${alignr}${color5}Download:${color}${totaldown wlp2s0}    ${color5}Upload:${color} ${totalup wlp2s0}
 ${template1}
 \
 \
-${font Droid Sans:bold:size=14}${color1}Eth:${font}${alignr}${downspeedgraph enp1s0 20,70 000000 FF7700 -l}    ${upspeedgraph enp1s0 20,70 000000 FF7700}
+${font Droid Sans:bold:size=7}${color1}Eth:${font}${alignr}${downspeedgraph enp1s0 20,70 000000 FF7700 -l}    ${upspeedgraph enp1s0 20,70 000000 FF7700}
 ${font Droid Sans:bold:size=14}${color4}${addr enp1s0}${color}${font}${alignr}${color5}Download:${color}${totaldown enp1s0}    ${color5}Upload:${color} ${totalup enp1s0}
 ${template1}
 \
