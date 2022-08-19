@@ -38,13 +38,13 @@
 		\   exe "normal! g'\"" |
 		\ endif
 		"for autocreate files content. Change path to your files or comment this:
-		:autocmd BufNewFile  *.py       0r ~/vim/mytemplates/mytemplates/python.txt
-		:autocmd BufNewFile  *.html     0r ~/vim/mytemplates/mytemplates/html.txt
-		:autocmd BufNewFile  *.c     0r ~/vim/mytemplates/mytemplates/c.txt
-		:autocmd BufNewFile  *.cpp     0r ~/vim/mytemplates/mytemplates/cpp.txt
-		:autocmd BufNewFile  *.h     0r ~/vim/mytemplates/mytemplates/h.txt
-		:autocmd BufNewFile  *.pl     0r ~/vim/mytemplates/mytemplates/perl.txt
-		:autocmd BufNewFile  *.rb     0r ~/vim/mytemplates/mytemplates/ruby.txt
+		:autocmd BufNewFile  *.py       0r ~/vim//mytemplates/python.txt
+		:autocmd BufNewFile  *.html     0r ~/vim//mytemplates/html.txt
+		:autocmd BufNewFile  *.c     0r ~/vim//mytemplates/c.txt
+		:autocmd BufNewFile  *.cpp     0r ~/vim//mytemplates/cpp.txt
+		:autocmd BufNewFile  *.h     0r ~/vim//mytemplates/h.txt
+		:autocmd BufNewFile  *.pl     0r ~/vim//mytemplates/perl.txt
+		:autocmd BufNewFile  *.rb     0r ~/vim//mytemplates/ruby.txt
 		"for auto change path to dir with edited file:
 		:autocmd BufEnter * lcd %:p:h
 	endif
