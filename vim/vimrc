@@ -1,7 +1,7 @@
 "================================================
 " 
 " 	Edit by 4eburashk http://csn.net4me.net
-" 		On Tue 28 Sep 2021 03:07:33 AM MSK
+" 		On Tue 28 Feb 2023 10:23:06 PM MSK
 " 
 "================================================
 	if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
@@ -10,18 +10,18 @@
 	if v:progname =~? "evim"
 		finish
 	endif
-" Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 	set nocompatible
 	set backspace=indent,eol,start
-	set history=80          " keep 80 lines of command line history
+	set history=90          " keep 80 lines of command line history
 	set ruler               " show the cursor position all the time
 	set showcmd             " show partial command in status line
-	set viminfo='80,%,n~/.viminfo
+	set viminfo='90,%,n~/.viminfo
+	set mouse-=a						" visual mouse off
+	set ttymouse=						" visual ttymouse off
 " Don't use Ex mode, use Q for formatting
 	map Q gq
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
+" GUI colors:
 	if &t_Co > 2 || has("gui_running")
 		syntax on
 		set hlsearch
@@ -37,15 +37,19 @@
 		\ if line("'\"") > 0 && line ("'\"") <= line("$") |
 		\   exe "normal! g'\"" |
 		\ endif
-		"for autocreate files content. Change path to your files or comment this:
-		:autocmd BufNewFile  *.py       0r ~/vim/mytemplates/python.txt
-		:autocmd BufNewFile  *.html     0r ~/vim/mytemplates/html.txt
+		" Templates:
+		:autocmd BufNewFile  *.sh    0r ~/vim/mytemplates/bash.txt
+		:autocmd BufNewFile  *.py    0r ~/vim/mytemplates/python.txt
+		:autocmd BufNewFile  *.html  0r ~/vim/mytemplates/html.txt
 		:autocmd BufNewFile  *.c     0r ~/vim/mytemplates/c.txt
-		:autocmd BufNewFile  *.cpp     0r ~/vim/mytemplates/cpp.txt
+		:autocmd BufNewFile  *.cpp   0r ~/vim/mytemplates/cpp.txt
 		:autocmd BufNewFile  *.h     0r ~/vim/mytemplates/h.txt
-		:autocmd BufNewFile  *.pl     0r ~/vim/mytemplates/perl.txt
-		:autocmd BufNewFile  *.rb     0r ~/vim/mytemplates/ruby.txt
-		"for auto change path to dir with edited file:
+		:autocmd BufNewFile  *.pl    0r ~/vim/mytemplates/perl.txt
+		:autocmd BufNewFile  *.rb    0r ~/vim/mytemplates/ruby.txt
+		:autocmd BufNewFile  *.go    0r ~/vim/mytemplates/go.txt
+		" php-fpm config syntax
+		:autocmd BufRead,BufNewFile /etc/php*.conf set syntax=dosini
+		"change dir to current:
 		:autocmd BufEnter * lcd %:p:h
 	endif
 
@@ -54,27 +58,28 @@
 		set noicon
 	endif
 
-" Persistent undo
-	try 
-		set undodir=~/.vim/undo//
-		set undofile
-		set undolevels=1000   " How many undos
-		set undoreload=10000  " number of lines to save for undo
-	catch
-	endtry
+" undo:
+	if !isdirectory($HOME."/.vim")
+		call mkdir($HOME."/.vim", "", 0770)
+	endif
+	if !isdirectory($HOME."/.vim/undo")
+		call mkdir($HOME."/.vim/undo", "", 0700)
+	endif
+	set undodir=~/.vim/undo/
+	set undofile
+	set undolevels=1000   " How many undos
+	set undoreload=10000  " number of lines to save for undo
 
-" Tab = (4*space)
+" Tab = (2*spaces)
 	set tabstop=2
-	set sw=4
+	set sw=2
 	set nomodeline
 	set noautoindent
-" on search T=t:
+" In search:
 	set ignorecase
-" my for right vertical window active
+" new file in Right window:
 	set splitright
-
-" my maps:
-" Insert my stamp (in i mode)
+" Stamp (i mode):
 	imap <F4> <C-R>=MyStamp()<CR>
 	function! MyStamp()
 		let myhead = "\n\tEdit by 4eburashk http://csn.net4me.net\n\tOn "
@@ -125,12 +130,12 @@
 		let &modifiable=l:oldmodifiable
 	endfunction
 
-" my menu for comments new:
+" Comments:
 	augroup commenting_blocks_of_code
 	  autocmd!
-	  autocmd FileType c,cpp,java,php let b:comment_leader = '// '
+	  autocmd FileType c,cpp,java,php,go,ino let b:comment_leader = '// '
 	  autocmd FileType sh,perl,ruby,python,awk   let b:comment_leader = '# '
-	  autocmd FileType conf,fstab       let b:comment_leader = '# '
+	  autocmd FileType conf,fstab,nginx let b:comment_leader = '# '
 	  autocmd FileType mail             let b:comment_leader = '> '
 	  autocmd FileType vim              let b:comment_leader = '" '
 	augroup END
@@ -168,13 +173,20 @@
 	menu FEnc.utf-8     :set fenc=utf-8<CR>
 	menu FEnc.ucs-2le   :set fenc=ucs-2le<CR>
 	map  <S-F8> :emenu FEnc.<Tab>
-" <TAB> tupo tab indent
+" <TAB> left/right indent:
 :vmap <Tab> >gv
 :vmap <S-Tab> <gv
 
-" Statusline
+" Status line:
 	set statusline="%<%f%h%m%r%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %b\ 0x%B\ %l,%c%V\ %P"
 	set laststatus=2
-"
+
+" YCM youcompleteme:
+try 
+	"highlight YcmWarningSection ctermbg=1 guibg=#800000
+	highlight Pmenu ctermfg=7 ctermbg=1 guifg=#ffffff guibg=#800000
+	set signcolumn=no " нахуй выпрыгивающую хрень слева со стрелочками. >>
+catch
+endtry
 " vim :set et ts=2 sw=2 sts=2
 " END
