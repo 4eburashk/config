@@ -1,8 +1,8 @@
 "================================================
 " 
 " 	Edit by 4eburashk http://csn.net4me.net
-" 		On Tue 28 Feb 2023 10:23:06 PM MSK
-" 
+" 		On Sun 09 Apr 2023 08:46:22 PM MSK
+" 		
 "================================================
 	if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 		set fileencodings=utf-8,latin1
@@ -37,17 +37,19 @@
 		\ if line("'\"") > 0 && line ("'\"") <= line("$") |
 		\   exe "normal! g'\"" |
 		\ endif
-		" Templates:
-		:autocmd BufNewFile  *.sh    0r ~/vim/mytemplates/bash.txt
-		:autocmd BufNewFile  *.py    0r ~/vim/mytemplates/python.txt
-		:autocmd BufNewFile  *.html  0r ~/vim/mytemplates/html.txt
-		:autocmd BufNewFile  *.c     0r ~/vim/mytemplates/c.txt
-		:autocmd BufNewFile  *.cpp   0r ~/vim/mytemplates/cpp.txt
-		:autocmd BufNewFile  *.h     0r ~/vim/mytemplates/h.txt
-		:autocmd BufNewFile  *.pl    0r ~/vim/mytemplates/perl.txt
-		:autocmd BufNewFile  *.rb    0r ~/vim/mytemplates/ruby.txt
-		:autocmd BufNewFile  *.go    0r ~/vim/mytemplates/go.txt
-		" php-fpm config syntax
+		"Templetes. for autocreate files content. Change paths to your template files:
+		if isdirectory($HOME."/vim/mytemplates")
+			:autocmd BufNewFile  *.sh    0r $HOME/vim/mytemplates/bash.txt
+			:autocmd BufNewFile  *.py    0r $HOME/vim/mytemplates/python.txt
+			:autocmd BufNewFile  *.html  0r $HOME/vim/mytemplates/html.txt
+			:autocmd BufNewFile  *.c     0r $HOME/vim/mytemplates/c.txt
+			:autocmd BufNewFile  *.cpp   0r $HOME/vim/mytemplates/cpp.txt
+			:autocmd BufNewFile  *.h     0r $HOME/vim/mytemplates/h.txt
+			:autocmd BufNewFile  *.pl    0r $HOME/vim/mytemplates/perl.txt
+			:autocmd BufNewFile  *.rb    0r $HOME/vim/mytemplates/ruby.txt
+			:autocmd BufNewFile  *.go    0r $HOME/vim/mytemplates/go.txt
+		endif
+		" php-fpm config syntax:
 		:autocmd BufRead,BufNewFile /etc/php*.conf set syntax=dosini
 		"change dir to current:
 		:autocmd BufEnter * lcd %:p:h
@@ -143,7 +145,7 @@
 	noremap <silent> <F6> :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 " autocompletion {<Enter>}
-"                imap {<CR> {<CR>}<Esc>O<Tab>
+" imap {<CR> {<CR>}<Esc>O<Tab>
 
 " Encoding old win:
 "<F7> EOL format (dos <CR><NL>,unix <NL>,mac <CR>)
@@ -173,7 +175,7 @@
 	menu FEnc.utf-8     :set fenc=utf-8<CR>
 	menu FEnc.ucs-2le   :set fenc=ucs-2le<CR>
 	map  <S-F8> :emenu FEnc.<Tab>
-" <TAB> left/right indent:
+"<TAB> left/right indent. v mode :
 :vmap <Tab> >gv
 :vmap <S-Tab> <gv
 
@@ -185,7 +187,7 @@
 try 
 	"highlight YcmWarningSection ctermbg=1 guibg=#800000
 	highlight Pmenu ctermfg=7 ctermbg=1 guifg=#ffffff guibg=#800000
-	set signcolumn=no " нахуй выпрыгивающую хрень слева со стрелочками. >>
+	set signcolumn=no " убрать выпрыгивающую хрень слева со стрелочками. >>
 catch
 endtry
 " vim :set et ts=2 sw=2 sts=2
