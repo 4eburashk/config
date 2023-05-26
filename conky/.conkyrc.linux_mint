@@ -1,5 +1,7 @@
-conky.config = {
+-- Notebook version
+-------------------------------------
 
+conky.config = {
 -------------------------------------
 --  Generic Settings
 -------------------------------------
@@ -17,7 +19,6 @@ default_graph_height=26,
 default_graph_width=80,
 show_graph_scale=false,
 show_graph_range=false,
-
 
 -------------------------------------
 --  Window Specifications
@@ -37,13 +38,12 @@ alignment="top_right",
 --own_window_argb_visual=true,
 --own_window_argb_value=0,
 
-
 -------------------------------------
 --  Text Settings
 -------------------------------------
 use_xft=true,
 xftalpha=1,
-font="Droid Sans:size=8",
+font="Droid Sans:size=7",
 text_buffer_size=256,
 override_utf8_locale=true,
 
@@ -51,7 +51,6 @@ short_units=true,
 short_units=true,
 pad_percents=2,
 top_name_width=7,
-
 
 -------------------------------------
 --  Color Scheme
@@ -74,10 +73,8 @@ template1="${color3}${hr}"
 
 }
 
-
----------------------------------------------------
----------------------------------------------------
-
+-------------------------------------
+-------------------------------------
 
 conky.text = [[
 \
@@ -85,8 +82,12 @@ ${color1}h:${nodename} d:${desktop} w:${user_names}  ${alignr} KERNEL: ${kernel}
 ${template1}
 ${color1}/home ${color5}USED:${color} ${fs_used /home} ${alignr} ${color5}FREE:${color} ${fs_free /home} 
 ${color3}${fs_size /home} ${fs_bar 8,240 /home}
+${color1}DOP ${color5}USED:${color} ${fs_used /mnt/DOP} ${alignr} ${color5}FREE:${color} ${fs_free /mnt/DOP} 
+${color3}${fs_size /mnt/DOP} ${fs_bar 8,240 /mnt/DOP}
 ${color1}HDD:${color}${alignr}${diskiograph 20,240 000000 FFCB48 -l}
-${color1}CPU0:${color} ${color4}${cpubar cpu0 8,60}  ${cpu cpu0}% ${alignr} ${cpu cpu1}% ${cpubar cpu1 8,60}${color1} :CPU1 ${color} 
+\
+${color1}CPU0:${color} ${color4}${cpubar cpu0 8,70}  ${cpu cpu0}% ${alignr} ${cpu cpu1}% ${cpubar cpu1 8,70}${color1} :CPU1 ${color} 
+\
 ${color3}process:               ${alignr}PID:     ${alignr}CPU%  ${color}
 1. ${top name 1}     ${alignr}${top pid 1}   ${alignr}${top cpu 1}%
 2. ${top name 2}     ${alignr}${top pid 2}   ${alignr}${top cpu 2}%
@@ -99,8 +100,7 @@ ${color3}process:               ${alignr}PID:     ${alignr}CPU%  ${color}
 \
 ${color1}CPU: ${alignr}${cpugraph 20,240 00FF00 FFCB48 -l}
 \
-${color1}RAM: ${color2}${memmax}/${mem}${alignr}${color4}${memperc}% ${membar 8,60}${color}
-\
+${color1}RAM: ${color2}${mem}/${memmax}${alignr}${color4}${memperc}% ${membar 8,130}${color}
 \
 ${color3}process:               ${alignr}PID:   ${alignr}MEM(MB):${color}
 ${top_mem name 1}     ${alignr}${top_mem pid 1}   ${alignr}${top_mem mem 1}
@@ -109,7 +109,6 @@ ${top_mem name 3}     ${alignr}${top_mem pid 3}   ${alignr}${top_mem mem 3}
 ${top_mem name 4}     ${alignr}${top_mem pid 4}   ${alignr}${top_mem mem 4}
 ${top_mem name 5}     ${alignr}${top_mem pid 5}   ${alignr}${top_mem mem 5}
 ${top_mem name 6}     ${alignr}${top_mem pid 6}   ${alignr}${top_mem mem 6}
-\
 \
 ${color1}Inbound Connection ${alignr} Local Service/Port${color}
 ${tcp_portmon 1 32767 rip 0} ${alignr} ${tcp_portmon 1 32767 lport 0}
